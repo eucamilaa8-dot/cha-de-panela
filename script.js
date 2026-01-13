@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbzbihhkhD14dPiyHxd6fWOainf75XvvP0iheg-QzxqdAHABJjo2kWpVkre6_4Q0jf-7yw/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyI59lM-YN1SwLzlH87LkzzGDYoqZ_xK-Q9YLGsaLuy--DyYyZOAmF7TDW3hLS573_W/exec";
 
 const lista = document.getElementById("lista");
 const selecionados = [];
