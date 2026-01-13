@@ -77,4 +77,14 @@ document.getElementById("confirmarTudo").onclick = () => {
     alert("Obrigada! 💖 Sua escolha foi registrada.");
     location.reload();
   });
+  function mostrarTelaObrigado(nome, presente) {
+  document.getElementById("tela-lista").style.display = "none";
+  document.getElementById("tela-obrigado").style.display = "block";
+
+  document.getElementById("titulo-obrigado").innerText =
+    `💖 Muito obrigada, ${nome}!`;
+
+  document.getElementById("texto-presente").innerHTML =
+    `Você escolheu o presente:<br><strong>🎁 ${presente}</strong>`;
+      }
 };
