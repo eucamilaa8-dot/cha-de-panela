@@ -1,9 +1,8 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbwukIlusL0kZsd1WmzyYqoZ8yDJzAN38Um4vzgjhsJcZ6YbJ1BPWrFN1vqnuTiS-1kgeA/exec";
 
 const lista = document.getElementById("lista");
-const selecionados = [];
 
-// Carregar dados
+// CARREGAR PRESENTES
 fetch(API_URL)
   .then(res => res.json())
   .then(data => {
@@ -11,41 +10,53 @@ fetch(API_URL)
       const card = document.createElement("div");
       card.className = "card";
 
-      // Se já foi escolhido
+      // PRESENTE JÁ ESCOLHIDO
       if (item.quem_vai_dar) {
         card.innerHTML = `
           <img src="${item.imagem}">
           <h3>${item.presente}</h3>
-          <p>🎁 Escolhido por <strong>${item.quem_vai_dar}</strong></p>
+          <p class="escolhido">
+            🎁 Escolhido por <strong>${item.quem_vai_dar}</strong>
+          </p>
         `;
       } 
-      // Disponível
+      // PRESENTE DISPONÍVEL
       else {
         card.innerHTML = `
           <img src="${item.imagem}">
           <h3>${item.presente}</h3>
 
-          <p>
+          <p class="aviso">
             Caso queira uma sugestão de onde comprar, só entrar no link ❤️
           </p>
 
           <a href="${item.link}" target="_blank">Ver sugestão</a>
 
-          <br><br>
-
-          <input type="checkbox">
-          <label>Selecionar este presente</label>
+          <input class="nome-input" placeholder="Seu nome">
+          <button class="btn-confirmar">Confirmar presente</button>
         `;
 
-        const checkbox = card.querySelector("input");
+        const btn = card.querySelector(".btn-confirmar");
+        const input = card.querySelector(".nome-input");
 
-        checkbox.onchange = () => {
-          if (checkbox.checked) {
-            selecionados.push(item.presente);
-          } else {
-            const index = selecionados.indexOf(item.presente);
-            if (index > -1) selecionados.splice(index, 1);
+        btn.onclick = () => {
+          const nome = input.value.trim();
+
+          if (!nome) {
+            alert("Digite seu nome 💚");
+            return;
           }
+
+          fetch(API_URL, {
+            method: "POST",
+            body: JSON.stringify({
+              presente: item.presente,
+              nome: nome
+            })
+          })
+          .then(() => {
+            mostrarTelaObrigado(nome, item.presente);
+          });
         };
       }
 
@@ -53,38 +64,15 @@ fetch(API_URL)
     });
   });
 
-// BOTÃO FINAL
-document.getElementById("confirmarTudo").onclick = () => {
-  const nome = document.getElementById("nomePessoa").value;
+// TELA DE AGRADECIMENTO
+function mostrarTelaObrigado(nome, presente) {
+  document.getElementById("lista").style.display = "none";
+  document.getElementById("confirmarTudo").style.display = "none";
 
-  if (!nome) {
-    alert("Digite seu nome 💚");
-    return;
-  }
-
-  if (selecionados.length === 0) {
-    alert("Selecione pelo menos um presente 🎁");
-    return;
-  }
-
-  fetch(API_URL, {
-    method: "POST",
-    body: JSON.stringify({
-      nome: nome,
-      presentes: selecionados
-    })
-  }).then(() => {
-    alert("Obrigada! 💖 Sua escolha foi registrada.");
-    location.reload();
-  });
-  function mostrarTelaObrigado(nome, presente) {
-  document.getElementById("tela-lista").style.display = "none";
-  document.getElementById("tela-obrigado").style.display = "block";
-
-  document.getElementById("titulo-obrigado").innerText =
-    `💖 Muito obrigada, ${nome}!`;
+  const tela = document.getElementById("tela-obrigado");
+  tela.style.display = "block";
 
   document.getElementById("texto-presente").innerHTML =
-    `Você escolheu o presente:<br><strong>🎁 ${presente}</strong>`;
-      }
-};
+    `💝 <strong>${nome}</strong>, muito obrigada pelo presente:<br><br>
+     🎁 <strong>${presente}</strong>`;
+}
