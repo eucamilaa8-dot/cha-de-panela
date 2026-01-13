@@ -12,15 +12,15 @@ fetch(API_URL)
       if (item.quem_vai_dar) {
         div.innerHTML = `
           <img src="${item.imagem}">
-          <strong>${item.presente}</strong>
-          <a href="${item.link}" target="_blank">Comprar</a>
+          <strong>${item.nome}</strong>
+          <a href="${item.link}" target="_blank">Sugestão</a>
           <span>🎁 ${item.quem_vai_dar}</span>
         `;
       } else {
         div.innerHTML = `
           <img src="${item.imagem}">
           <strong>${item.presente}</strong>
-          <a href="${item.link}" target="_blank">Comprar</a>
+          <a href="${item.link}" target="_blank">Sugestão</a>
           <input placeholder="Seu nome">
           <button>Confirmar</button>
         `;
