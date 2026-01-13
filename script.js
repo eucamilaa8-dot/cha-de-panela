@@ -19,7 +19,7 @@ fetch(API_URL)
       } else {
         div.innerHTML = `
           <img src="${item.imagem}">
-          <strong>${item.presente}</strong>
+          <strong>${item.nome}</strong>
           <a href="${item.link}" target="_blank">Sugestão</a>
           <input placeholder="Seu nome">
           <button>Confirmar</button>
@@ -32,11 +32,11 @@ fetch(API_URL)
           fetch(API_URL, {
             method: "POST",
             body: JSON.stringify({
-              presente: item.presente,
+              presente: item.nome,
               nome: input.value
             })
           }).then(() => {
-            alert("Obrigado! 💚 Você escolheu: " + item.presente);
+            alert("Obrigado! 💚 Você escolheu: " + item.nome);
             location.reload();
           });
         };
