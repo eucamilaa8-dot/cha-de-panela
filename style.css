@@ -35,4 +35,16 @@ h1 {
 
 .card img {
   width: 100px;
+
+.thank-you {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fdf3f7, #f0fff6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+}
 }
