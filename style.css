@@ -8,6 +8,7 @@ body {
 
 h1 {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .center {
@@ -15,27 +16,81 @@ h1 {
   margin-top: 100px;
 }
 
-.btn {
-  background: #6b8e23;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 5px;
+.aviso {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
+/* BOTÕES */
+.btn,
+.btn-confirmar {
+  background: #6b8e23;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: center;
+}
+
+.btn-confirmar {
+  margin-top: 10px;
+}
+
+.btn:hover,
+.btn-confirmar:hover {
+  opacity: 0.9;
+}
+
+/* CARD DO PRESENTE */
 .card {
-  display: grid;
-  grid-template-columns: 120px 1fr 1fr 1fr;
-  gap: 10px;
   background: white;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .card img {
-  width: 100px;
+  width: 100%;
+  max-width: 160px;
+  align-self: center;
+  border-radius: 8px;
+}
 
+.card h3 {
+  margin: 5px 0;
+  text-align: center;
+}
+
+.card a {
+  text-align: center;
+  color: #6b8e23;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* INPUT NOME */
+.nome-input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* PRESENTE JÁ ESCOLHIDO */
+.escolhido {
+  text-align: center;
+  font-weight: bold;
+  color: #6b8e23;
+}
+
+/* TELA DE AGRADECIMENTO */
 .thank-you {
   min-height: 100vh;
   background: linear-gradient(135deg, #fdf3f7, #f0fff6);
@@ -45,6 +100,17 @@ h1 {
   align-items: center;
   text-align: center;
   padding: 24px;
-  font-family: Arial, sans-serif;
 }
+
+.thank-you h1 {
+  margin-bottom: 10px;
+}
+
+.evento {
+  margin: 15px 0;
+}
+
+.carinho {
+  font-size: 15px;
+  margin-top: 10px;
 }
