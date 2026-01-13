@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbwukIlusL0kZsd1WmzyYqoZ8yDJzAN38Um4vzgjhsJcZ6YbJ1BPWrFN1vqnuTiS-1kgeA/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbzr9SOG73F6U_-8x5fj7l9QwQhYimV73fC2U5QJj1NFLayy2adGGDy6EOPQdMEKi40aBQ/exec";
 
 const lista = document.getElementById("lista");
 
