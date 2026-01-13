@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Lista de Presentes</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Lista de Presentes</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>💚 Chá de Panela L&C</h1>
+  <h1>💚 Chá de Panela L&C</h1>
 
-<div id="lista"></div>
+  <p class="aviso">
+    Caso queira uma sugestão de onde comprar, só entrar no link ❤️
+  </p>
 
-<script src="script.js"></script>
+  <!-- LISTA DE PRESENTES -->
+  <div id="lista"></div>
+
+  <!-- BOTÃO FINAL -->
+  <button id="confirmarTudo" class="btn">Confirmar presentes</button>
+
+  <!-- TELA DE AGRADECIMENTO -->
+  <div id="tela-obrigado" style="display:none">
+    <div class="thank-you">
+      <h1>🎉 Obrigado pelo carinho!</h1>
+
+      <p id="texto-presente"></p>
+
+      <div class="evento">
+        <p><strong>📅 Data:</strong> 20 de Abril de 2026</p>
+        <p><strong>📍 Local:</strong> Espaço Jardim das Flores</p>
+      </div>
+
+      <p class="carinho">
+        Sua presença é muito especial pra gente 💚
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-<input id="nomePessoa" placeholder="Seu nome">
-
-<div id="lista"></div>
-
-<button id="confirmarTudo">Confirmar presentes</button>
-
